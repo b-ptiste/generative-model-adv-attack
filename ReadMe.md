@@ -1,6 +1,6 @@
-Auteur : 
-- CALLARD Baptiste
-- TOCQUEC Louis
+Author : 
+- **CALLARD Baptiste** (MVA)
+- **TOCQUEC Louis** (MVA)
 
 As part of the "Introduction to Probabilistic Graphical Models and Deep Generative Models" course run by P. LATOUCHE, P.A. MATTEI in the MVA Master's programme. We studied the paper "Are Generative Classifiers More Robust to Adversarial Attacks?" (https://arxiv.org/pdf/1802.06552.pdf).
 
@@ -19,7 +19,7 @@ You can go through our results in the notebook. Also, all the experiments are re
 Here are the main results and cool visualisations : 
 
 ## Some attacks : 
-Black box attack: target zoo in different classes. The image on the left is well classified before the attack. After the attack, it is classified in the target class.
+Black box attack: target zoo in different classes. The image on the left is well classified before the attack. After the attack, it is classified in the target class. We present successful attacks on discriminatory models.
 
 On SVHN
 ![attacks_eg_2](https://github.com/b-ptiste/generative-model-adv-attack/assets/75781257/abdfeffb-3777-4791-ad33-9e3d04ab6ec5)
@@ -31,6 +31,8 @@ On FashionMNIST
 
 - Generative models : GFZ, GBZ, GFY, GBY
 - Discriminative models : DBX, DFX, DFZ
+
+We confirm the results of the paper with our implementation. On the other hand, the approach works on small datasets because, by construction, generative models are not good at prediction. So, if the question is about robustness, we may be interested in the drop in performance. However, in practice what we are interested in is performance, for example in terms of accuracy against such and such attacks. In this configuration, generative models will lag behind real-life datasets due to their lack of predictive power.
 
 ### White box attack
 
