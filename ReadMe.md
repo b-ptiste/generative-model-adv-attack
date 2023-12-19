@@ -1,4 +1,4 @@
-# Code will be release soon (22/12/2023)
+# Code will be released soon (22/12/2023)
 
 Author : 
 - **CALLARD Baptiste** (MVA)
