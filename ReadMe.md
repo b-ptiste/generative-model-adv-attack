@@ -16,7 +16,7 @@ Finally, we presented our results in a document in NEURIPS format.
 
 # Some Visualisation
 
-You can go through our results in the notebook. Also, all the experiments are reproducible. For the training sessions, we used Google Colab to take advantage of the GPUs.
+You can go through our results in the notebook. Also, all the experiments are reproducible. For the training, we used Google Colab to take advantage of the GPUs.
 
 Here are the main results and cool visualisations : 
 
@@ -34,7 +34,7 @@ On FashionMNIST
 - Generative models : GFZ, GBZ, GFY, GBY
 - Discriminative models : DBX, DFX, DFZ
 
-We confirm the results of the paper with our implementation. On the other hand, the approach works on small datasets because, by construction, generative models are not good at prediction. So, if the question is about robustness, we may be interested in the drop in performance. However, in practice what we are interested in is performance, for example in terms of accuracy against such and such attacks. In this configuration, generative models will lag behind real-life datasets due to their lack of predictive power.
+We confirm the results of the paper with our implementation. On the other hand, the approach works on small datasets because, by construction, generative models are not good at prediction. So, if the question is about robustness when generative model can effectively well classfied, then there are more robust (we may be interested in the drop in performance). However, in practice, what we are interested in is performance, for example in terms of accuracy against a particular attack. In this configuration, generative models will be poor on real datasets because of their lack of predictive power.
 
 ### White box attack
 
