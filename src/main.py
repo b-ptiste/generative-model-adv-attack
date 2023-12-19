@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 
-from src.visualization import evaluation_vizualization, plot_loss
+from visualization import evaluation_vizualization, plot_loss
 
 
 def train(
