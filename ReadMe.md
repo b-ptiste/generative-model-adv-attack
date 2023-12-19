@@ -4,6 +4,10 @@ Author :
 - **CALLARD Baptiste** (MVA)
 - **TOCQUEC Louis** (MVA)
 
+- Try it easly :
+
+You can run the overview of our code here without installation : https://colab.research.google.com/drive/1CEghLfVIJZE13gsFawlNxJlwWWlvHFtY?usp=sharing.
+
 As part of the "Introduction to Probabilistic Graphical Models and Deep Generative Models" course run by P. LATOUCHE, P.A. MATTEI in the MVA Master's programme. We studied the paper "Are Generative Classifiers More Robust to Adversarial Attacks?" (https://arxiv.org/pdf/1802.06552.pdf).
 
 # Paper review 
