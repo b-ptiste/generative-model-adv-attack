@@ -321,7 +321,7 @@ def predict_poisoned_zoo(
         data, target = data.to(device).requires_grad_(True), target.to(device)
         _ = F.one_hot(target, num_classes=num_classes).to(torch.float32)
         res, _ = predict_one_batch(cvae, data, K, data.shape[0], num_classes, device)
-        print("batch", res)
+        # print("batch", res)
         all_preds.extend(res.cpu().numpy())
         all_targets.extend(target.cpu().numpy())
 
@@ -332,7 +332,7 @@ def predict_poisoned_zoo(
             res, _ = predict_one_batch(
                 cvae, data_poised, K, data.shape[0], num_classes, device
             )
-            print("batch", res)
+            # print("batch", res)
 
             all_preds_poisoned[eps].extend(res.cpu().numpy())
     return all_preds, all_targets, all_preds_poisoned
