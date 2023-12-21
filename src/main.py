@@ -210,7 +210,7 @@ def predict_poisoned(
         # Access the gradients
         gradient = data.grad
         for eps in list_eps:
-            data_poised = data + eps * gradient
+            data_poised = data - eps * gradient
             # plt.imshow(data_poised.cpu().detach().numpy().squeeze(0).reshape((28, 28, 1)))
             # plt.show()
             res, _ = predict_one_batch(
