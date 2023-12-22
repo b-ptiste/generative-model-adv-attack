@@ -193,7 +193,6 @@ def predict_poisoned(
 
     for batch_idx, (data, target) in tqdm(enumerate(testloader)):
         # Skip the last batch
-        # if batch_idx == len(testloader) - 1:
         if batch_idx > Q:
             break
         data, target = data.to(device).requires_grad_(True), target.to(device)
@@ -201,23 +200,15 @@ def predict_poisoned(
         res, _ = predict_one_batch(cvae, data, K, data.shape[0], num_classes, device)
         all_preds.extend(res.cpu().numpy())
         all_targets.extend(target.cpu().numpy())
-        # plt.imshow(data.cpu().detach().numpy().squeeze(0).reshape((28, 28, 1)))
-        # plt.show()
-        # print('before attack')
-        # print(f'predicted : {num_to_class[res.item()]}, labels : {num_to_class[target_one_hot.argmax().item()]}')
         losses_ = cvae(data, target_one_hot, 1)
         losses_.backward()
         # Access the gradients
         gradient = data.grad
         for eps in list_eps:
             data_poised = data - eps * gradient
-            # plt.imshow(data_poised.cpu().detach().numpy().squeeze(0).reshape((28, 28, 1)))
-            # plt.show()
             res, _ = predict_one_batch(
                 cvae, data_poised, K, data.shape[0], num_classes, device
             )
-            # print('After attack')
-            # print(f'predicted : {num_to_class[res.item()]}, labels : {num_to_class[target_one_hot.argmax().item()]}')
 
             all_preds_poisoned[eps].extend(res.cpu().numpy())
     return all_preds, all_targets, all_preds_poisoned

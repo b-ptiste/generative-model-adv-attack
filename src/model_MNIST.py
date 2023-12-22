@@ -45,29 +45,20 @@ class Encoder(nn.Module):
         self.l4 = nn.Linear(in_features=H, out_features=latent_size)
 
     def forward(self, x, y):
-        verboseprint("0", x.shape)
         x = F.relu(self.conv_1(x))
-        verboseprint("1", x.shape)
         x = F.relu(self.conv_2(x))
-        verboseprint("2", x.shape)
         x = F.relu(self.conv_3(x))
-        verboseprint("3", x.shape)
         x = self.flatten(x)
-        verboseprint("4", x.shape)
         fea = self.l1(x)
 
         if self.model in ["GFZ", "GBZ", "GFY", "GBY"]:
             x = torch.cat([fea, y], 1)
         elif self.model in ["DBX", "DFX", "DFZ"]:
             x = fea
-        verboseprint("5", x.shape)
 
         x = F.relu(self.l2(x))
-        verboseprint("6", x.shape)
         mu = self.l3(x)
-        verboseprint("7", x.shape)
         log_var = self.l4(x)
-        verboseprint("8", x.shape)
 
         return mu, log_var, fea
 
@@ -152,7 +143,6 @@ class Decoder(nn.Module):
         )
 
     def forward(self, z, y, fea=None):
-        verboseprint("0", z.shape, y.shape)
         if self.model in ["GFZ", "GBZ", "DBX"]:
             # p_yz
             temp_tild = self.p_yz(z)
@@ -171,19 +161,12 @@ class Decoder(nn.Module):
                 # p_xy
                 x_tild = z
 
-            verboseprint("1", x_tild.shape)
             x_tild = F.relu(self.l_p_xyz_1(x_tild))
-            verboseprint("2", x_tild.shape)
             x_tild = F.relu(self.l_p_xyz_2(x_tild))
-            verboseprint("3", x_tild.shape)
             x_tild = x_tild.view(-1, 64, 4, 4)
-            verboseprint("5", x_tild.shape)
             x_tild = F.relu(self.deconv1(x_tild))
-            verboseprint("6", x_tild.shape)
             x_tild = F.relu(self.deconv2(x_tild))
-            verboseprint("7", x_tild.shape)
             x_tild = self.deconv3(x_tild)
-            verboseprint("8", x_tild.shape)
 
             return x_tild, temp_tild
         else:
@@ -285,7 +268,6 @@ class CVAE(nn.Module):
         y_tild = self.decoder(z, y)
 
         ###  py_z ####################
-        # TODO -> check soft is properly done
         log_py_z = self.loss_py_z(y_tild, y)
         ##############################
 
@@ -312,7 +294,6 @@ class CVAE(nn.Module):
         y_tild = self.decoder(z, y, fea)
 
         ###  py_z ####################
-        # TODO -> check soft is properly done
         log_py_z = self.loss_py_z(y_tild, y)
         ##############################
 
