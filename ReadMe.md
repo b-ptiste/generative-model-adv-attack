@@ -1,12 +1,10 @@
-Author : 
-- **CALLARD Baptiste** (MVA)
-- **TOCQUEC Louis** (MVA)
+As part of the "Introduction to Probabilistic Graphical Models and Deep Generative Models" course run by P. LATOUCHE, P.A. MATTEI in the MVA Master's programme. We studied the paper [Are Generative Classifiers More Robust to Adversarial Attacks?](https://arxiv.org/pdf/1802.06552.pdf) 🥷.
 
-- Try it easly :
+# Reproduce the experiments : 
+- 💻 Launch the code on [Colab](https://colab.research.google.com/drive/1CEghLfVIJZE13gsFawlNxJlwWWlvHFtY?usp=sharing)
+- 📖 Read our report : [here](https://drive.google.com/file/d/1Uid8mWEvAFNFBUSGKxk1dxgSghFufcPz/view) 
+- 🖼️ See our poster : [here](https://drive.google.com/file/d/1elRmy-GWLtpTIibrHbGMleaMZp5Yq6B4/view) 
 
-You can run the overview of our code here without installation : https://colab.research.google.com/drive/1CEghLfVIJZE13gsFawlNxJlwWWlvHFtY?usp=sharing.
-
-As part of the "Introduction to Probabilistic Graphical Models and Deep Generative Models" course run by P. LATOUCHE, P.A. MATTEI in the MVA Master's programme. We studied the paper "Are Generative Classifiers More Robust to Adversarial Attacks?" (https://arxiv.org/pdf/1802.06552.pdf).
 
 # Paper review 
 The article "Are Generative Classifiers More Robust to Adversarial Attacks?" investigates the robustness of deep neural network classifiers against adversarial attacks. The focus is on the comparison between generative classifiers, which model the conditional distribution of labels given inputs, and discriminative classifiers. The authors propose the deep Bayes classifier, which is an improvement over the classical naive Bayes, using conditional deep generative models. They develop methods to detect adversarial examples. Their experimental results suggest that deep Bayes classifiers are more robust than traditional deep discriminative classifiers and that the proposed detection methods effectively counter many recent adversarial attacks.
